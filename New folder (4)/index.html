@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#02030a">
+  <!-- ✎ CUSTOMIZE: the browser tab title -->
+  <title>for you ♡</title>
+
+  <!-- Fonts are optional: if offline, the serif/sans fallbacks in style.css are used -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="0">
+
+  <!-- ===== GLOBAL ATMOSPHERE (shared by all pages) ===== -->
+  <div class="nebula" aria-hidden="true"><i class="neb neb-a"></i><i class="neb neb-b"></i><i class="neb neb-c"></i></div>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <div id="flash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main id="app">
+
+    <!-- ===================================================== -->
+    <!-- PAGE 1 — THE OPENING LOVE LETTER                       -->
+    <!-- ===================================================== -->
+    <section class="page" id="page-1" aria-label="Opening letter">
+      <div class="center-glow" id="center-glow" aria-hidden="true"></div>
+      <div class="inner">
+        <!-- ✎ CUSTOMIZE: the three messages (shown one after another).
+             Add or remove <p class="msg"> lines freely; the script plays whatever is here. -->
+        <div class="messages" aria-live="polite">
+          <p class="msg">You know that I love you right?</p>
+          <p class="msg">i love u so so so so so so much</p>
+          <p class="msg">Im never leaving ur side</p>
+        </div>
+
+        <button class="btn reveal" id="btn-to-video" type="button">there's something for you ♡</button>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- PAGE 2 — THE PERSONAL VIDEO                            -->
+    <!-- ===================================================== -->
+    <section class="page" id="page-2" aria-label="A video for you">
+      <button class="back" type="button" data-go="1" aria-label="Go back">‹ back</button>
+      <div class="inner p2">
+
+        <h2 class="heading p2-item" style="--i:0">a little piece of my heart</h2>
+
+        <div class="frame p2-item" style="--i:1">
+          <div class="frame-aura" aria-hidden="true"></div>
+          <div class="video-shell" id="video-shell">
+
+            <!-- ================================================================
+                 ✎ YOUR VIDEO GOES HERE
+                 1. Put your video file inside the "assets" folder.
+                 2. Name it  birthday-video.mp4   (or change the src below to match).
+                 MP4 (H.264 video + AAC audio) works on every phone and browser.
+                 ================================================================ -->
+            <video id="love-video" controls playsinline preload="metadata" controlslist="nodownload">
+              <source src="assets/birthday-video.mp4" type="video/mp4">
+              Your browser doesn't support embedded video.
+            </video>
+
+            <button class="play-orb" id="video-play" type="button" aria-label="Play video">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </button>
+
+            <!-- Shown automatically only if assets/birthday-video.mp4 can't be found -->
+            <p class="video-note" id="video-note" hidden>
+              your video goes here ♡<br>
+              <small>save it as <code>assets/birthday-video.mp4</code></small>
+            </p>
+          </div>
+        </div>
+
+        <button class="btn p2-item" style="--i:2" id="btn-to-birthday" type="button">one last thing, my love →</button>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- PAGE 3 — HIS 19TH BIRTHDAY                             -->
+    <!-- ===================================================== -->
+    <section class="page" id="page-3" aria-label="Happy birthday">
+      <button class="back off" id="btn-back-3" type="button" data-go="2" aria-label="Go back">‹ back</button>
+      <div class="inner">
+        <div class="stage">
+
+          <!-- Countdown (lives in the same grid cell as the finale so nothing shifts) -->
+          <div class="counter-box" id="counter-box">
+            <div class="count" id="count" role="timer" aria-live="off">19</div>
+            <!-- ✎ CUSTOMIZE: the small line under the number -->
+            <p class="count-line">19 years of you. And I'm so lucky to know you.</p>
+            <!-- Only visible if you configure a real birthday date in script.js -->
+            <p class="waiting" id="waiting" hidden>the universe is waiting for the right moment ♡</p>
+          </div>
+
+          <!-- The birthday reveal -->
+          <div class="finale-box" id="finale-box">
+            <h1 class="final-title" id="final-title">happy birthday my love</h1>
+            <!-- ✎ CUSTOMIZE: the message under the heading -->
+            <p class="final-sub" id="final-sub">I hope this year gives you everything your heart has been wishing for. I love you, always. ♡</p>
+            <button class="btn reveal" id="btn-replay" type="button">play our moment again ♡</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
